@@ -11,9 +11,9 @@
 }
 
 body {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Lato', sans-serif;
 	line-height: 1.6;
-	color: #fff;
+	color: #333;
 }
 
 a {
@@ -32,6 +32,10 @@ h3 {
 
 img {
 	width: 100%;
+}
+
+h1 {
+	font-weight: 300;
 }
 
 @import 'media';

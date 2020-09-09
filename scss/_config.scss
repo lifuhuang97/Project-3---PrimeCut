@@ -11,13 +11,20 @@ $light-secondary-color: #fff;
 $dark-primary-color: #fff;
 $dark-secondary-color: #fff;
 
+$bg-image: url('../img/cover.jpg');
 
+// Dark to Light
+// CC5803
+// E2711D
+// FF9505
+// FFB627
+// FFC971
 
 // Set Text Color
 @function set-text-color($color) {
-  @if (lightness($color) > 50) {
-    @return #333;
-  } @else {
-    @return #fff;
-  }
+	@if (lightness($color) > 50) {
+		@return #333;
+	} @else {
+		@return #fff;
+	}
 }

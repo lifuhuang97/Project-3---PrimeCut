@@ -1,0 +1,37 @@
+@import 'config';
+@import 'utilities';
+@import 'flexboxes';
+
+// Basic Config
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.6;
+	color: #fff;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+h1,
+h2,
+h3 {
+	text-transform: uppercase;
+}
+
+img {
+	width: 100%;
+}
+
+@import 'media';

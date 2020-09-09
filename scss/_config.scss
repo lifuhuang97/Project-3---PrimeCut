@@ -1,0 +1,23 @@
+// Variables
+
+$website-width: 1280px;
+
+$primary-color: orange;
+$secondary-color: #fff;
+
+$light-primary-color: #fff;
+$light-secondary-color: #fff;
+
+$dark-primary-color: #fff;
+$dark-secondary-color: #fff;
+
+
+
+// Set Text Color
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}

@@ -2,19 +2,20 @@
 
 $website-width: 1280px;
 
-$primary-color: orange;
-$secondary-color: #fff;
+$nav-color: #e2711d; //RGB - 226, 113, 29
+$primary-color: #ff9505; // RGB - 255,149,5
+$primary-font-color: rgba(226, 113, 29, 0.8);
+$secondary-font-color: rgba(226,113,29,0.68);
 
-$light-primary-color: #fff;
-$light-secondary-color: #fff;
+$icons-color: rgba(255, 149, 5, 0.96);
 
-$dark-primary-color: #fff;
-$dark-secondary-color: #fff;
+$secondary-color: #ffb627; // RGB - 255,182,39
+$tertiary-color: #ffc971;
 
 $bg-image: url('../img/cover.jpg');
 
 // Dark to Light
-// CC5803
+// CC5803 (very dark, maybe nav?)
 // E2711D
 // FF9505
 // FFB627

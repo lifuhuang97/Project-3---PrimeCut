@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Font Link for Lato font -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+        <!-- Font Awesome API -->
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+            crossorigin="anonymous"
+        />
+        <!-- Jquery Link for Calendar Widget -->
+        <link
+            rel="stylesheet"
+            href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+        />
+        <!-- <link rel="stylesheet" href="/resources/demos/style.css" /> -->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <!-- Style  -->
+        <link rel="stylesheet" href="css/main.css" />
+        <!-- Google Login Button -->
+        <meta name="google-signin-scope" content="profile email" />
+        <meta
+            name="google-signin-client_id"
+            content="998387468711-ee6mmt9tcclr3b6fim56omlsiebm2b04.apps.googleusercontent.com"
+        />
+        <script
+            src="https://apis.google.com/js/platform.js"
+            async
+            defer
+        ></script>
+        <title>PrimeCut | Customize Recipes & Calculate Macros</title>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav id="nav-bar">
+            <div class="container">
+                <a href="index.html"
+                    ><img src="./img/logo.png" alt="primecut" id="logo"
+                /></a>
+            </div>
+            <div class="sign-in-container">
+                <div class="google-sign-in-btn">
+                    <div class="google-icon-wrapper">
+                      <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                    </div>
+                    <p class="google-sign-in-btn-text">Sign in with Google</p>
+                  </div>
+            </div>
+        </nav>
+
+
+        <!-- This is the entire UI's container -->
+        <div class="container-white">
+            <!-- This is the left section of the UI -->
+            <div class="recipe-view">
+                <!-- This is the search bar, add and favourites list -->
+                <div class="config-bar">
+                    <!-- Search field -->
+                    <form class="search-recipe">
+                        <input
+                            type="text"
+                            class="search__field"
+                            placeholder="Search for recipes here"
+                        />
+                        <button class="search-btn">
+                            <svg>
+                                <use
+                                    href="./img/icons.svg#icon-magnifying-glass"
+                                ></use>
+                            </svg>
+                        </button>
+                    </form>
+                    <!-- End of search field -->
+                    <!-- Widgets div -->
+                    <div class="widgets">
+                        <div class="add-recipe-btn">
+                            <p>Add Recipe</p>
+                        </div>
+                        <div class="fav-recipe-btn">
+                            <p>View Favourites</p>
+                        </div>
+                    </div>
+                    <!-- End of widgets div -->
+                </div>
+                <!-- This is the end of the config bar -->
+
+                <!-- Results Display -->
+                <div class="results-display">
+
+					<div class="login-display">
+						<h1>Please Login To Use The App</h1>
+					</div>
+
+                    <!-- List of results -->
+                    <li class="results-list">
+                        <!-- This is the template string for ONE recipe -->
+                        <ul class="food-result">
+                            <!-- This is the favourite (heart) logo -->
+                            <div class="favourite-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-heart"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of favourite (heart) logo -->
+
+                            <!-- Food primary information (Name, macros) -->
+                            <div class="food-flex-box">
+                                <div class="food-primary-info">
+                                    <div class="food-name">
+                                        <h2>Chicken Pasta w/ Tomato</h2>
+                                    </div>
+                                    <div class="food-macros-info">
+                                        <div class="macros">
+                                            <div
+                                                class="food-macro protein-macro"
+                                            >
+                                                P 177
+                                            </div>
+                                            <div class="food-macro carbs-macro">
+                                                C 136
+                                            </div>
+                                            <div class="food-macro fat-macro">
+                                                F 17
+                                            </div>
+                                        </div>
+                                        <div class="edit">EDIT</div>
+                                    </div>
+                                </div>
+                                <div class="food-calories">
+                                    <h1>1736 <span>Kcal</span></h1>
+                                </div>
+                            </div>
+                            <!-- End of food primary info -->
+
+                            <!-- Add logo -->
+                            <div class="add-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-circle-with-plus"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of add logo -->
+                        </ul>
+						<!-- End of ONE food item's template string -->
+						
+						<!-- This is the template string for ONE recipe -->
+                        <ul class="food-result">
+                            <!-- This is the favourite (heart) logo -->
+                            <div class="favourite-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-heart"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of favourite (heart) logo -->
+
+                            <!-- Food primary information (Name, macros) -->
+                            <div class="food-flex-box">
+                                <div class="food-primary-info">
+                                    <div class="food-name">
+                                        <h2>Chicken Pasta w/ Tomato</h2>
+                                    </div>
+                                    <div class="food-macros-info">
+                                        <div class="macros">
+                                            <div
+                                                class="food-macro protein-macro"
+                                            >
+                                                P 177
+                                            </div>
+                                            <div class="food-macro carbs-macro">
+                                                C 136
+                                            </div>
+                                            <div class="food-macro fat-macro">
+                                                F 17
+                                            </div>
+                                        </div>
+                                        <div class="edit">EDIT</div>
+                                    </div>
+                                </div>
+                                <div class="food-calories">
+                                    <h1>1736 <span>Kcal</span></h1>
+                                </div>
+                            </div>
+                            <!-- End of food primary info -->
+
+                            <!-- Add logo -->
+                            <div class="add-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-circle-with-plus"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of add logo -->
+                        </ul>
+						<!-- End of ONE food item's template string -->
+						
+						<!-- This is the template string for ONE recipe -->
+                        <ul class="food-result">
+                            <!-- This is the favourite (heart) logo -->
+                            <div class="favourite-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-heart"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of favourite (heart) logo -->
+
+                            <!-- Food primary information (Name, macros) -->
+                            <div class="food-flex-box">
+                                <div class="food-primary-info">
+                                    <div class="food-name">
+                                        <h2>Chicken Pasta w/ Tomato</h2>
+                                    </div>
+                                    <div class="food-macros-info">
+                                        <div class="macros">
+                                            <div
+                                                class="food-macro protein-macro"
+                                            >
+                                                P 177
+                                            </div>
+                                            <div class="food-macro carbs-macro">
+                                                C 136
+                                            </div>
+                                            <div class="food-macro fat-macro">
+                                                F 17
+                                            </div>
+                                        </div>
+                                        <div class="edit">EDIT</div>
+                                    </div>
+                                </div>
+                                <div class="food-calories">
+                                    <h1>1736 <span>Kcal</span></h1>
+                                </div>
+                            </div>
+                            <!-- End of food primary info -->
+
+                            <!-- Add logo -->
+                            <div class="add-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-circle-with-plus"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of add logo -->
+                        </ul>
+						<!-- End of ONE food item's template string -->
+						
+						<!-- This is the template string for ONE recipe -->
+                        <ul class="food-result">
+                            <!-- This is the favourite (heart) logo -->
+                            <div class="favourite-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-heart"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of favourite (heart) logo -->
+
+                            <!-- Food primary information (Name, macros) -->
+                            <div class="food-flex-box">
+                                <div class="food-primary-info">
+                                    <div class="food-name">
+                                        <h2>Chicken Pasta w/ Tomato</h2>
+                                    </div>
+                                    <div class="food-macros-info">
+                                        <div class="macros">
+                                            <div
+                                                class="food-macro protein-macro"
+                                            >
+                                                P 177
+                                            </div>
+                                            <div class="food-macro carbs-macro">
+                                                C 136
+                                            </div>
+                                            <div class="food-macro fat-macro">
+                                                F 17
+                                            </div>
+                                        </div>
+                                        <div class="edit">EDIT</div>
+                                    </div>
+                                </div>
+                                <div class="food-calories">
+                                    <h1>1736 <span>Kcal</span></h1>
+                                </div>
+                            </div>
+                            <!-- End of food primary info -->
+
+                            <!-- Add logo -->
+                            <div class="add-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-circle-with-plus"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of add logo -->
+                        </ul>
+						<!-- End of ONE food item's template string -->
+						
+						<!-- This is the template string for ONE recipe -->
+                        <ul class="food-result">
+                            <!-- This is the favourite (heart) logo -->
+                            <div class="favourite-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-heart"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of favourite (heart) logo -->
+
+                            <!-- Food primary information (Name, macros) -->
+                            <div class="food-flex-box">
+                                <div class="food-primary-info">
+                                    <div class="food-name">
+                                        <h2>Chicken Pasta w/ Tomato</h2>
+                                    </div>
+                                    <div class="food-macros-info">
+                                        <div class="macros">
+                                            <div
+                                                class="food-macro protein-macro"
+                                            >
+                                                P 177
+                                            </div>
+                                            <div class="food-macro carbs-macro">
+                                                C 136
+                                            </div>
+                                            <div class="food-macro fat-macro">
+                                                F 17
+                                            </div>
+                                        </div>
+                                        <div class="edit">EDIT</div>
+                                    </div>
+                                </div>
+                                <div class="food-calories">
+                                    <h1>1736 <span>Kcal</span></h1>
+                                </div>
+                            </div>
+                            <!-- End of food primary info -->
+
+                            <!-- Add logo -->
+                            <div class="add-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-circle-with-plus"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of add logo -->
+                        </ul>
+						<!-- End of ONE food item's template string -->
+						
+						
+                    </li>
+                    <!-- End of results list -->
+                </div>
+                <!-- End of results display -->
+
+                <!-- Results pages -->
+                <div class="results-pages">
+                    <button class="btn-inline results__btn--prev page-btn">
+                        <svg class="search__icon">
+                            <use href="img/icons.svg#icon-triangle-left"></use>
+                        </svg>
+                        <span>Page 1</span>
+                    </button>
+                    <button class="btn-inline results__btn--next page-btn">
+                        <span>Page 3</span>
+                        <svg class="search__icon">
+                            <use href="img/icons.svg#icon-triangle-right"></use>
+                        </svg>
+                    </button>
+                </div>
+                <!-- End of results pages -->
+            </div>
+
+            <!-- This is the right section of the UI -->
+            <div class="daily-view">
+                <!-- Calendar container -->
+                <!-- INSERT Calendar LAST as it messes with prettier -->
+
+                <div class="container">
+                    <!-- Placeholder Calendar -->
+                    <!-- <div class="calendar-container">
+                        <p>01 Oct 2020</p>
+					</div> -->
+
+                    <!-- COMMENT OUT THIS DIV IF NEED TO FORMAT ANYTHING -->
+                    <div class="calendar-container">
+						<p>
+						<p><input type="text" id="datepicker" size="30"></p>
+						</p>
+					</div>
+                </div>
+                <!-- Calendar container end -->
+
+                <!-- Day summary container -->
+                <div class="day-summary-container">
+                    <!-- Total calories container -->
+                    <div class="total-calories">
+                        <h4>Total Calories</h4>
+                        <h1>1337</h1>
+                    </div>
+                    <!-- Total calories container end -->
+
+                    <!-- Total Macros container -->
+                    <div class="total-macros">
+                        <div class="total-macro total-p">P 136</div>
+                        <div class="total-macro total-c">C 177</div>
+                        <div class="total-macro total-f">F 102</div>
+                    </div>
+                    <!-- Total Macros container end -->
+                </div>
+                <!-- Day summary container end -->
+
+                <!-- Divider -->
+                <div class="divider">
+                    <div class="line"></div>
+                </div>
+
+                <!-- Container for list of recipes eaten -->
+                <div class="total-recipes-eaten-container">
+                    <!-- Sub-container -->
+                    <div class="summary-food-result">
+                        <!-- One summary item's template string -->
+                        <div class="summary-food-item">
+                            <div class="food-summary">
+                                <!-- Div for food information -->
+                                <div class="food-info">
+                                    <!-- Div for food name -->
+                                    <div class="food-name">
+                                        <h2>
+                                            Chicken Pasta w/ Tomato wwoow LALA
+                                        </h2>
+                                    </div>
+                                    <!-- Div for food macros -->
+                                    <div class="food-macros-info">
+                                        <div class="food-macro protein-macro">
+                                            P 177
+                                        </div>
+                                        <div class="food-macro carbs-macro">
+                                            C 136
+                                        </div>
+                                        <div class="food-macro fat-macro">
+                                            F 17
+                                        </div>
+                                    </div>
+                                    <!-- End of div for food macros -->
+                                </div>
+                                <!-- End of div for food information -->
+
+                                <!-- Div for total calories -->
+                                <div class="food-calories">
+                                    <h1>1736 <span>Kcal</span></h1>
+                                </div>
+                                <!-- End of div for total calories -->
+                            </div>
+                            <!-- End of div for food information -->
+
+                            <!-- Div for delete icon -->
+                            <div class="delete-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-circle-with-plus"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of div for delete icon -->
+                        </div>
+                        <!-- One summary item's template string  END-->
+
+                        <!-- One summary item's template string -->
+                        <div class="summary-food-item">
+                            <div class="food-summary">
+                                <!-- Div for food information -->
+                                <div class="food-info">
+                                    <!-- Div for food name -->
+                                    <div class="food-name">
+                                        <h2>
+                                            Chicken Pasta w/ Tomato wwoow LALA
+                                        </h2>
+                                    </div>
+                                    <!-- Div for food macros -->
+                                    <div class="food-macros-info">
+                                        <div class="food-macro protein-macro">
+                                            P 177
+                                        </div>
+                                        <div class="food-macro carbs-macro">
+                                            C 136
+                                        </div>
+                                        <div class="food-macro fat-macro">
+                                            F 17
+                                        </div>
+                                    </div>
+                                    <!-- End of div for food macros -->
+                                </div>
+                                <!-- End of div for food information -->
+
+                                <!-- Div for total calories -->
+                                <div class="food-calories">
+                                    <h1>1736 <span>Kcal</span></h1>
+                                </div>
+                                <!-- End of div for total calories -->
+                            </div>
+                            <!-- End of div for food information -->
+
+                            <!-- Div for delete icon -->
+                            <div class="delete-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-circle-with-plus"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of div for delete icon -->
+                        </div>
+                        <!-- One summary item's template string  END-->
+
+                        <!-- One summary item's template string -->
+                        <div class="summary-food-item">
+                            <div class="food-summary">
+                                <!-- Div for food information -->
+                                <div class="food-info">
+                                    <!-- Div for food name -->
+                                    <div class="food-name">
+                                        <h2>
+                                            Chicken Pasta w/ Tomato wwoow LALA
+                                        </h2>
+                                    </div>
+                                    <!-- Div for food macros -->
+                                    <div class="food-macros-info">
+                                        <div class="food-macro protein-macro">
+                                            P 177
+                                        </div>
+                                        <div class="food-macro carbs-macro">
+                                            C 136
+                                        </div>
+                                        <div class="food-macro fat-macro">
+                                            F 17
+                                        </div>
+                                    </div>
+                                    <!-- End of div for food macros -->
+                                </div>
+                                <!-- End of div for food information -->
+
+                                <!-- Div for total calories -->
+                                <div class="food-calories">
+                                    <h1>1736 <span>Kcal</span></h1>
+                                </div>
+                                <!-- End of div for total calories -->
+                            </div>
+                            <!-- End of div for food information -->
+
+                            <!-- Div for delete icon -->
+                            <div class="delete-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-circle-with-plus"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of div for delete icon -->
+                        </div>
+                        <!-- One summary item's template string  END-->
+
+                        <!-- One summary item's template string -->
+                        <div class="summary-food-item">
+                            <div class="food-summary">
+                                <!-- Div for food information -->
+                                <div class="food-info">
+                                    <!-- Div for food name -->
+                                    <div class="food-name">
+                                        <h2>
+                                            Chicken Pasta w/ Tomato wwoow LALA
+                                        </h2>
+                                    </div>
+                                    <!-- Div for food macros -->
+                                    <div class="food-macros-info">
+                                        <div class="food-macro protein-macro">
+                                            P 177
+                                        </div>
+                                        <div class="food-macro carbs-macro">
+                                            C 136
+                                        </div>
+                                        <div class="food-macro fat-macro">
+                                            F 17
+                                        </div>
+                                    </div>
+                                    <!-- End of div for food macros -->
+                                </div>
+                                <!-- End of div for food information -->
+
+                                <!-- Div for total calories -->
+                                <div class="food-calories">
+                                    <h1>1736 <span>Kcal</span></h1>
+                                </div>
+                                <!-- End of div for total calories -->
+                            </div>
+                            <!-- End of div for food information -->
+
+                            <!-- Div for delete icon -->
+                            <div class="delete-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-circle-with-plus"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of div for delete icon -->
+                        </div>
+                        <!-- One summary item's template string  END-->
+
+                        <!-- One summary item's template string -->
+                        <div class="summary-food-item">
+                            <div class="food-summary">
+                                <!-- Div for food information -->
+                                <div class="food-info">
+                                    <!-- Div for food name -->
+                                    <div class="food-name">
+                                        <h2>
+                                            Chicken Pasta w/ Tomato wwoow LALA
+                                        </h2>
+                                    </div>
+                                    <!-- Div for food macros -->
+                                    <div class="food-macros-info">
+                                        <div class="food-macro protein-macro">
+                                            P 177
+                                        </div>
+                                        <div class="food-macro carbs-macro">
+                                            C 136
+                                        </div>
+                                        <div class="food-macro fat-macro">
+                                            F 17
+                                        </div>
+                                    </div>
+                                    <!-- End of div for food macros -->
+                                </div>
+                                <!-- End of div for food information -->
+
+                                <!-- Div for total calories -->
+                                <div class="food-calories">
+                                    <h1>1736 <span>Kcal</span></h1>
+                                </div>
+                                <!-- End of div for total calories -->
+                            </div>
+                            <!-- End of div for food information -->
+
+                            <!-- Div for delete icon -->
+                            <div class="delete-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-circle-with-plus"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of div for delete icon -->
+                        </div>
+                        <!-- One summary item's template string  END-->
+
+                        <!-- One summary item's template string -->
+                        <div class="summary-food-item">
+                            <div class="food-summary">
+                                <!-- Div for food information -->
+                                <div class="food-info">
+                                    <!-- Div for food name -->
+                                    <div class="food-name">
+                                        <h2>
+                                            Chicken Pasta w/ Tomato wwoow LALA
+                                        </h2>
+                                    </div>
+                                    <!-- Div for food macros -->
+                                    <div class="food-macros-info">
+                                        <div class="food-macro protein-macro">
+                                            P 177
+                                        </div>
+                                        <div class="food-macro carbs-macro">
+                                            C 136
+                                        </div>
+                                        <div class="food-macro fat-macro">
+                                            F 17
+                                        </div>
+                                    </div>
+                                    <!-- End of div for food macros -->
+                                </div>
+                                <!-- End of div for food information -->
+
+                                <!-- Div for total calories -->
+                                <div class="food-calories">
+                                    <h1>1736 <span>Kcal</span></h1>
+                                </div>
+                                <!-- End of div for total calories -->
+                            </div>
+                            <!-- End of div for food information -->
+
+                            <!-- Div for delete icon -->
+                            <div class="delete-logo">
+                                <svg>
+                                    <use
+                                        href="./img/icons.svg#icon-circle-with-plus"
+                                    ></use>
+                                </svg>
+                            </div>
+                            <!-- End of div for delete icon -->
+                        </div>
+                        <!-- One summary item's template string  END-->
+
+                        <!-- Sub-container end -->
+                    </div>
+                    <!-- END OF Container for list of recipes eaten -->
+                </div>
+            </div>
+            <!-- End of right section UI -->
+            <!-- SEPARATOR -->
+        </div>
+        <!-- End of entire UI -->
+    </body>
+</html>

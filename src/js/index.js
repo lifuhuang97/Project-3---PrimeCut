@@ -86,13 +86,20 @@ const openStreams = (userId) => {
                     // console.log("This is state for recipes after adding");
                     // console.log(state.recipes);
                 } else if (change.type == "removed") {
-                    // console.log("change.doc.id is " + thisRecipeId);
-                    let li = elements.recipesDisplay.querySelector(
-                        "[data-id=" + change.doc.id + "]"
-                    );
-                    elements.recipesDisplay.removeChild(li);
+                    if (
+                        elements.recipesDisplay.querySelector(
+                            "[data-id=" + change.doc.id + "]"
+                        )
+                    ) {
+                        let li = elements.recipesDisplay.querySelector(
+                            "[data-id=" + change.doc.id + "]"
+                        );
+                        elements.recipesDisplay.removeChild(li);
 
-                    delete state.recipes[thisRecipeId];
+                        delete state.recipes[thisRecipeId];
+                    }
+                    // console.log("change.doc.id is " + thisRecipeId);
+
                     // console.log("This is state for recipes after deleting");
 
                     // console.log(state.recipes);

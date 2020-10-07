@@ -5,14 +5,14 @@ $website-width: 1280px;
 $nav-color: #e2711d; //RGB - 226, 113, 29
 $primary-color: #ff9505; // RGB - 255,149,5
 $primary-font-color: rgba(226, 113, 29, 0.8);
-$secondary-font-color: rgba(226,113,29,0.68);
+$secondary-font-color: rgba(226, 113, 29, 0.68);
 
 $icons-color: rgba(255, 149, 5, 0.96);
 
 $secondary-color: #ffb627; // RGB - 255,182,39
 $tertiary-color: #ffc971;
 
-$bg-image: url('../img/cover.jpg');
+$bg-image: url("../img/cover.jpg");
 
 // Dark to Light
 // CC5803 (very dark, maybe nav?)
@@ -23,9 +23,9 @@ $bg-image: url('../img/cover.jpg');
 
 // Set Text Color
 @function set-text-color($color) {
-	@if (lightness($color) > 50) {
-		@return #333;
-	} @else {
-		@return #fff;
-	}
+    @if (lightness($color) > 50) {
+        @return #333;
+    } @else {
+        @return #fff;
+    }
 }

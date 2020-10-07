@@ -15,11 +15,15 @@ const config = {
 
 firebase.initializeApp(config);
 
+// Create
 export const createUserProfileDocument = async (userAuth, additionalData) => {
+    // Return if no users found
     if (!userAuth) return;
 
+    // Create user reference
     const userRef = firestore.doc(`users/${userAuth.uid}`);
 
+    // Get a snapshot of this user reference
     const snapShot = await userRef.get();
 
     if (!snapShot.exists) {
@@ -40,7 +44,16 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
 };
 
-export const addRecipeToFirestore = async (userAuth) => {
+export const addRecipeToFirestore = async (userAuth, details) => {
+    const allDetails = { ...details };
+    console.log("this is name");
+    console.log(allDetails.name);
+    console.log("this is protein");
+    console.log(allDetails.p);
+    console.log(allDetails.c);
+    console.log(allDetails.f);
+    console.log(allDetails.cal);
+
     if (!userAuth) return;
 
     // Holds a reference to a new document created in recipes

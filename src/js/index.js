@@ -28,9 +28,20 @@ const state = {
     daily: {},
 };
 
+const resetState = () => {
+    state.currentUser = null;
+    state.currentDate = getDateInDDMMYY();
+    state.recipes = {};
+    state.daily = {};
+    recipeView.clearRecipeView();
+    dailyRecipeView.clearDailyView();
+    dailyRecipeView.clearSummaryInfo();
+};
+
 // Login Handling Code --- Messy because don't understand google login & firebase well, to be optimized
 firebase.auth.onAuthStateChanged(async (user) => {
     if (user) {
+        firebase.createUserProfileDocument(user);
         state.currentUser = user.uid;
         console.log("User logged in, firebase auth detected");
         console.log(state.currentUser);
@@ -38,7 +49,7 @@ firebase.auth.onAuthStateChanged(async (user) => {
         processDailyRecipes();
     } else {
         console.log("User logged out, firebase auth detected");
-        state.currentUser = null;
+        resetState();
         console.log(state.currentUser);
     }
     loginView.LoginDisplay(state);

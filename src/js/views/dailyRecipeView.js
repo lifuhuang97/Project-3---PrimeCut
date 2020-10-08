@@ -52,9 +52,21 @@ export const processAddDaily = async (user, date, recipe, recipeId) => {
     }
 };
 
+const renderNameLength = (name) => {
+    const limit = 40;
+
+    if (name.length > limit) {
+        return `${name.substring(0, 40)} ...`;
+    }
+
+    return name;
+};
+
 export const renderDaily = (details) => {
     console.log("This is UID in renderDaily");
     console.log(details.id);
+
+    let fixedDailyItemName = renderNameLength(details.data().name);
 
     // console.log("This is original data in renderDaily");
     // console.log(details.data());
@@ -65,7 +77,7 @@ export const renderDaily = (details) => {
         <div class="food-info">
             <div class="food-name">
                 <h2>
-                    ${details.data().name}
+                    ${fixedDailyItemName}
                 </h2>
             </div>
             <div class="food-macros-info">
@@ -97,6 +109,13 @@ export const renderDaily = (details) => {
     `;
 
     elements.dailyDisplay.insertAdjacentHTML("afterbegin", markup);
+};
+
+export const clearSummaryInfo = () => {
+    elements.totalCalories.querySelector("h1").innerText = 0;
+    elements.totalProtein.innerHTML = "P " + 0;
+    elements.totalCarbs.innerHTML = "C " + 0;
+    elements.totalFat.innerHTML = "F " + 0;
 };
 
 export const processSummaryInfo = (dailyRecipes) => {

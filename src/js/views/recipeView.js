@@ -4,6 +4,16 @@ export const clearRecipeView = () => {
     elements.recipesDisplay.innerHTML = "";
 };
 
+const renderNameLength = (name) => {
+    const limit = 25;
+
+    if (name.length > limit) {
+        return `${name.substring(0, 25)} ...`;
+    }
+
+    return name;
+};
+
 export const renderRecipe = (id, details) => {
     //! Pass in one doc object of name-value pair for this
     // Note that the data need to be details.data().[attributename]
@@ -26,7 +36,7 @@ export const renderRecipe = (id, details) => {
             <div class="food-flex-box">
                 <div class="food-primary-info">
                     <div class="food-name">
-                        <h2>${details.name}</h2>
+                        <h2>${renderNameLength(details.name)}</h2>
                     </div>
                     <div class="food-macros-info">
                         <div class="macros">

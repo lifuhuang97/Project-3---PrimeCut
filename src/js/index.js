@@ -314,6 +314,8 @@ $("#datepicker")
 
             state.currentDate = date + month + year;
             dailyRecipeView.clearDailyView();
+            dailyRecipeView.clearSummaryInfo();
+            state.daily = {};
             processDailyRecipes();
         }
     });

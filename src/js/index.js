@@ -73,7 +73,12 @@ const openStreams = (userId) => {
                 let thisRecipeId = change.doc.id;
 
                 if (change.type == "added") {
-                    recipeView.renderRecipe(thisRecipeId, change.doc.data());
+                    if (!(thisRecipeId in state.recipes)) {
+                        recipeView.renderRecipe(
+                            thisRecipeId,
+                            change.doc.data()
+                        );
+                    }
 
                     const { name, p, c, f, cal } = change.doc.data();
 
@@ -131,7 +136,9 @@ const processDailyRecipes = () => {
                 let thisRecipeId = change.doc.id;
 
                 if (change.type == "added") {
-                    dailyRecipeView.renderDaily(change.doc);
+                    if (!(thisRecipeId in state.daily)) {
+                        dailyRecipeView.renderDaily(change.doc);
+                    }
 
                     const { name, p, c, f, cal } = change.doc.data();
 

@@ -350,8 +350,10 @@ svg {
       #nav-bar .sign-in-container .google-sign-in-btn:active {
         background: #1669f2; }
 
+.container-white {
+  display: none; }
+
 .unloggedin-container {
-  display: none;
   min-height: 85vh;
   max-width: 120rem;
   margin: 3vh 3vw;

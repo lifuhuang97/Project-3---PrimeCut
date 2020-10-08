@@ -4,7 +4,7 @@
     "description": "Recipe & Macro Tracker",
     "main": "index.js",
     "scripts": {
-        "sass": "node-sass -w src/scss/ -o src/css --recursive && node-sass -w src/scss -o dist/css",
+        "sass": "node-sass -w src/scss/ -o dist/css --recursive",
         "dev": "webpack --mode development",
         "build": "webpack --mode production",
         "start": "webpack-dev-server --mode development --open"

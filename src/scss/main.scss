@@ -156,16 +156,17 @@ svg {
 }
 
 .container-white {
-    // display: none;
+    display: none;
 }
 
 .unloggedin-container {
-    display: none;
+    // display: none;
     min-height: 85vh;
     max-width: 120rem;
     margin: 3vh 3vw;
     border-radius: 25px;
     background-color: $secondary-color;
+    // background-color: #fff;
     color: #fff;
     display: flex;
     align-items: center;

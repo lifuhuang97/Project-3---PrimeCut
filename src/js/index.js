@@ -2,6 +2,7 @@ import { elements } from "./views/base";
 import * as firebase from "./firebase/firebase.utils";
 import * as loginView from "./views/loginView";
 import * as addRecipeView from "./views/addRecipeView";
+import * as recipeView from "./views/recipeView";
 import * as dailyRecipeView from "./views/dailyRecipeView";
 
 // App Initialization
@@ -72,7 +73,7 @@ const openStreams = (userId) => {
                 let thisRecipeId = change.doc.id;
 
                 if (change.type == "added") {
-                    addRecipeView.renderRecipe(change.doc);
+                    recipeView.renderRecipe(thisRecipeId, change.doc.data());
 
                     const { name, p, c, f, cal } = change.doc.data();
 
@@ -192,6 +193,31 @@ elements.recipesDisplay.addEventListener("click", (e) => {
             id
         );
         // console.log("Add is clicked");
+    } else if (
+        e.target &&
+        e.target.parentElement.classList.contains("favourite-logo")
+    ) {
+        console.log("im clicking favourites");
+        console.log(e.target);
+        let favouriteIcon = e.target.querySelector("use");
+        console.log(favouriteIcon);
+        let currentHref = favouriteIcon.getAttribute("href");
+        console.log("Current href is");
+        console.log("LOOOOOOOOOOOOOOOOL");
+        console.log(currentHref);
+        console.log(currentHref == "./img/icons.svg#icon-heart-outlined");
+        // currentHref == "./img/icons.svg#icon-heart-outlined"
+        //     ? favouriteIcon.setAttribute("href", "./img/icons.svg#icon-heart")
+        //     : favouriteIcon.setAttribute(
+        //           "href",
+        //           "./img/icons.svg#icon-heart-outlined"
+        //       );
+        currentHref == "./img/icons.svg#icon-heart-outlined"
+            ? $(e.target > "use").attr("href", "./img/icons.svg#icon-heart")
+            : $(e.target > "use").attr(
+                  "href",
+                  "./img/icons.svg#icon-heart-outlined"
+              );
     }
 });
 
@@ -234,7 +260,7 @@ elements.dailyDisplay.addEventListener("click", (e) => {
     }
 });
 
-// Auto Search (To be completed)
+// Auto Search
 var delay = (function () {
     var timer = 0;
     return function (callback, ms) {
@@ -246,7 +272,7 @@ var delay = (function () {
 document.querySelector(".search__field").addEventListener("keyup", (event) => {
     // console.log("event target value is " + event.target.value);
     delay(function () {
-        alert("Hi, func called");
+        recipeView.renderRecipeBySearch(event.target.value, state.recipes);
     }, 300);
 });
 

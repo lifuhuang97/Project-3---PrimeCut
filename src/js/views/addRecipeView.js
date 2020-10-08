@@ -31,13 +31,23 @@ export const processAddRecipe = (user, foodRawData) => {
         return result;
     }, {});
 
-    // console.log("This is processed data");
+    console.log("This is processed data");
     // console.log(processedData);
     // console.log(processedData.name);
     // console.log(processedData.p);
     // console.log(processedData.c);
     // console.log(processedData.f);
-    // console.log(processedData.cal);
+    console.log(processedData.cal);
+
+    let kcal = processedData.cal;
+
+    if (!processedData.cal) {
+        let caloriesCalc =
+            parseInt(processedData.p) * 4 +
+            parseInt(processedData.c) * 4 +
+            parseInt(processedData.f) * 9;
+        kcal = caloriesCalc;
+    }
 
     // 2. Send to firebase
     firestore.doc(`users/${user}`).collection("recipes").add({
@@ -45,65 +55,6 @@ export const processAddRecipe = (user, foodRawData) => {
         c: processedData.c,
         f: processedData.f,
         name: processedData.name,
-        cal: processedData.cal,
+        cal: kcal,
     });
-};
-
-export const renderRecipe = (details) => {
-    //! Pass in one doc object of name-value pair for this
-    // Note that the data need to be details.data().[attributename]
-
-    // console.log("This is UID");
-    // console.log(details.id);
-    // console.log("This is original data");
-    // console.log(details.data());
-
-    //TODO: Edit this markup accordingly later
-    const markup = `
-        <li class="food-result" data-id="${details.id}">
-            <div class="favourite-logo">
-                <svg>
-                    <use
-                        href="./img/icons.svg#icon-heart"
-                    ></use>
-                </svg>
-            </div>
-            <div class="food-flex-box">
-                <div class="food-primary-info">
-                    <div class="food-name">
-                        <h2>${details.data().name}</h2>
-                    </div>
-                    <div class="food-macros-info">
-                        <div class="macros">
-                            <div
-                                class="food-macro protein-macro"
-                            >
-                                P ${details.data().p}
-                            </div>
-                            <div class="food-macro carbs-macro">
-                                C ${details.data().c}
-                            </div>
-                            <div class="food-macro fat-macro">
-                                F ${details.data().f}
-                            </div>
-                        </div>
-                        <div class="edit">DELETE</div>
-                    </div>
-                </div>
-                <div class="food-calories">
-                    <h1>${details.data().cal} <span>Kcal</span></h1>
-                </div>
-            </div>
-            <div class="add-logo">
-                <svg>
-                    <use
-                        href="./img/icons.svg#icon-circle-with-plus"
-                    ></use>
-                </svg>
-            </div>
-        </li>
-
-    `;
-
-    elements.recipesDisplay.insertAdjacentHTML("afterbegin", markup);
 };

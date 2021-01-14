@@ -5,7 +5,7 @@
   <img src="https://user-images.githubusercontent.com/54570187/95406991-69ad5b80-094e-11eb-8343-8000391f4be9.png" width="800px"/>
 </a>
 
-  <h3 align="center">PrimeCut - Calories & Macros Tracker</h3>
+  <h3 align="center">PrimeCut - Calories & Macros Tracker (Work In Progress)</h3>
 
   <p align="center">
     A web application which helps people to track their daily nutrition intake, built using JavaScript and Firebase
